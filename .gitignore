@@ -1,10 +1,5 @@
-/Priority Queue/bin
-/Priority Queue/obj
-/Priority Queue Tests/bin
-/Priority Queue Tests/obj
-/Priority Queue Example/bin
-/Priority Queue Example/obj
-*.user
+Bin/
+Obj/
+*.dll
 *.suo
-/packages/
-/Priority Queue/*.nupkg
+*.user
