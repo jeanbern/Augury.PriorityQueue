@@ -33,14 +33,14 @@ namespace Augury.PriorityQueue
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Enqueue(string word, double priority)
         {
-            if (_numNodes >= _nodes.Count() - 1)
+            if (_numNodes >= _nodes.Length - 1)
             {
                 if (priority > First.Similarity)
                 {
                     Dequeue();
                     _extras.Clear();
                 }
-                else if (priority == First.Similarity)
+                else if (priority + 0.0000000001 > First.Similarity)
                 {
                     _extras.Add(new WordSimilarityNode { Similarity = priority, Word = word });
                     return;
@@ -102,13 +102,7 @@ namespace Augury.PriorityQueue
         /// If the queue is empty, behavior is undefined.
         /// O(1)
         /// </summary>
-        public IWordSimilarityNode First
-        {
-            get
-            {
-                return _nodes[1];
-            }
-        }
+        public IWordSimilarityNode First => _nodes[1];
 
         public IEnumerator<IWordSimilarityNode> GetEnumerator()
         {
